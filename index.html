@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/bootstrap.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+  <link rel="manifest" href="dist/manifest.json">
   <script src='./dist/app.bundle.js' defer ></script>
 </head>
 <body>
@@ -168,11 +168,11 @@
 </body>
 <script>
   (function() {
-    if("serverWorker" in navigator){
+    if("serviceWorker" in navigator) {
       navigator.serviceWorker.register("./service-worker.js")
-      .then(()=> console.log("server worker registered successfully."))
-      .catch(error => console.log(("Service Worker registration failed:"), error))
+        .then(() => console.log("Service Worker registered successfully."))
+        .catch(error => console.log("Service Worker registration failed:", error));
     }
-  })
-</script>
+  })();
+  </script>
 </html>
